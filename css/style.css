@@ -1,0 +1,89 @@
+/* The flip card container - set the width and height to whatever you want. We have added the border property to demonstrate that the flip itself goes out of the box on hover (remove perspective if you don't want the 3D effect */
+.flip-card {
+    background-color: transparent;
+    width: 300px;
+    height: 200px;
+    perspective: 1000px; /* Remove this if you don't want the 3D effect */
+    appearance: none;
+    border: none;
+    outline: none;
+    background: none;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.25);
+    background-color: rgba(255, 255, 255, 0.5);
+    padding: 12px;
+    margin: 12px;
+}
+
+/* This container is needed to position the front and back side */
+.flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+}
+
+/* Do an horizontal flip when you move the mouse over the flip box container */
+.flip-card:hover .flip-card-inner {
+    transform: rotateY(180deg);
+}
+
+/* Position the front and back side */
+.flip-card-front, .flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden; /* Safari */
+    backface-visibility: hidden;
+}
+
+/* Style the front side (fallback if image is missing) */
+.flip-card-front {
+    color: black;
+}
+
+/* Style the back side */
+.flip-card-back {
+    background-color: forestgreen;
+    color: white;
+    transform: rotateY(180deg);
+}
+
+body {
+    padding: 0 10%
+}
+
+/* Float four columns side by side */
+.column {
+    float: left;
+    width: 30%;
+    padding: 1%;
+}
+
+/* Remove extra left and right margins, due to padding in columns */
+.row {
+    margin: 0 -5px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+footer{
+    text-align: center;
+    font-family: Arial, sans-serif;
+    font-size: 40px;
+    font-style: italic;
+}
+
+header{
+    font-style: italic;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif, "Harlow Solid Italic";
+    font-size: 80px;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
